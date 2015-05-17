@@ -10,11 +10,21 @@ function createBoard() {
 	boardContainer.className = 'boardContainer';
 	document.getElementsByTagName('body')[0].appendChild(boardContainer);
 
-	for (var counter = 0; counter < boardArray.length; counter++)
-	  var boardSquare = document.createElement('div');
-	  boardSquare.className = 'boardSquare';
-	  boardSquare.innerHTML = counter;
-	  boardContainer.appendChild(boardSquare);
+function fuckThis() {
+
+		var boardSquare = document.createElement('div');
+		boardSquare.className = 'boardSquare';
+		//boardSquare.idName = counter;
+		boardSquare.setAttribute('id', counter)
+		//boardSquare.setAttribute(class, 'boardSquare' + counter);
+		boardSquare.innerHTML = counter;
+		return boardSquare;
+}
+
+
+for (var counter = 0; counter < boardArray.length; counter++)
+		
+		boardContainer.appendChild(fuckThis());
 };
 
 createBoard();
@@ -56,4 +66,4 @@ createBoard();
 // 6 stop game when there's a winner
 
 
-	
+

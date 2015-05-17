@@ -1,12 +1,17 @@
+* {
+  box-sizing: border-box;
+}
+
 .boardContainer {
+
 	border: 1px solid black;
-	width: 49em;
-	height: 42em;
+	width: 562px;
+	height: 480px;
 }
 .boardSquare {
 	border: 1px solid black;
-	width: 7em;
-	height: 6em;
+	width: 80px;
+	height: 80px;
 	display: inline-block;
 }
 #red {
