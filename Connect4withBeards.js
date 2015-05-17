@@ -1,4 +1,8 @@
 // 1 create board (6 x 7 square)
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0f4fe051cb5dd88b0995c0b598f9a1ffe7bee235
 // array 0..41
 // for loop drops in pre-set sized pieces within container div (inline block)
 
@@ -9,6 +13,7 @@ function createBoard() {
 	boardContainer.className = 'boardContainer';
 	document.getElementsByTagName('body')[0].appendChild(boardContainer);
 
+<<<<<<< HEAD
 	function square() {
 		var boardSquare = document.createElement('div');
 		boardSquare.className = 'boardSquare';
@@ -30,15 +35,35 @@ function createBoard() {
 		
 		boardContainer.appendChild(square());
 		//square().appendChild(circle());
+=======
+function fuckThis() {
+
+		var boardSquare = document.createElement('div');
+		boardSquare.className = 'boardSquare';
+		//boardSquare.idName = counter;
+		boardSquare.setAttribute('id', counter)
+		//boardSquare.setAttribute(class, 'boardSquare' + counter);
+		boardSquare.innerHTML = counter;
+		return boardSquare;
+}
+
+
+for (var counter = 0; counter < boardArray.length; counter++)
+		
+		boardContainer.appendChild(fuckThis());
+>>>>>>> 0f4fe051cb5dd88b0995c0b598f9a1ffe7bee235
 };
 
 createBoard();
 
 // 2 set 2 players
 
+<<<<<<< HEAD
 var player1 = {name: 'Player 1', turn: true};
 var player2 = {name: 'Player 2', turn: true};
 
+=======
+>>>>>>> 0f4fe051cb5dd88b0995c0b598f9a1ffe7bee235
 // 3 alternate turns
 // turn function assigns a player and after action assigns new player
 // action lands piece in specified column (modulus of 7) in last open cell
