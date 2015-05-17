@@ -8,7 +8,7 @@ var boardArray = new Array(42);
 function createBoard() {
 	var boardContainer = document.createElement('div');
 	boardContainer.className = 'boardContainer';
-	document.getElementsByTagName('body')[0].appendChild(boardContainer);
+	document.getElementsByClassName('mainContainer')[0].appendChild(boardContainer);
 
 	function square() {
 		var boardSquare = document.createElement('div');
