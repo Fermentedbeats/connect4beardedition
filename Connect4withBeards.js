@@ -39,17 +39,40 @@ createBoard();
 // 2 set 2 players
 
 
-var player1 = {name: 'Player 1', turn: true};
+var player1 = {name: 'Player 1', turn: false};
 var player2 = {name: 'Player 2', turn: false};
 
 // 3 alternate turns
 // turn function assigns a player and after action assigns new player
 // action lands piece in specified column (modulus of 7) in last open cell
 
-function turn() {
-  
+// function turn() {
 
-}
+ //    vqr squares = document.getElementsByClassName('boardSquare')
+
+ //    square.addEventListener("click", animateChecker(), true);
+	
+	// for (var sqCount = 0; sqCount < 42; sqCount++) {	
+	// 	document.getElementById(sqCount).addEventListener("click", animateChecker(), true);
+	// 	}   
+	
+
+
+    document.getElementById('0').addEventListener("click", function() {var col = this.id % 7; console.log(col)}, true);
+
+	function animateChecker() {
+		// var column = this.id % 7;
+		console.log("column"); 
+	}
+  
+	// if (player1.turn === false) {
+
+	// }
+
+	// else
+	// 	;
+// }
+
 
 
 // 4 click on col & piece appears
