@@ -1,6 +1,11 @@
+* {
+  box-sizing: border-box;
+}
+
 .boardContainer {
+
 	border: 1px solid black;
-	width: 49em;
+	width: 52em;
 	height: 42em;
 }
 .boardSquare {
