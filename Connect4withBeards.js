@@ -10,7 +10,7 @@ function createBoard() {
 	boardContainer.className = 'boardContainer';
 	document.getElementsByTagName('body')[0].appendChild(boardContainer);
 
-	for (var counter = 0; counter = boardArray.length; counter++)
+	for (var counter = 0; counter < boardArray.length; counter++)
 	  var boardSquare = document.createElement('div');
 	  boardSquare.className = 'boardSquare';
 	  boardSquare.innerHTML = counter;
