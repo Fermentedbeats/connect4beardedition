@@ -1,0 +1,14 @@
+.boardContainer {
+	border: 1px solid black;
+	width: 49em;
+	height: 42em;
+}
+.boardSquare {
+	border: 1px solid black;
+	width: 7em;
+	height: 6em;
+	display: inline-block;
+}
+#red {
+	background-color: red;
+}
