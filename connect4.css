@@ -3,7 +3,6 @@
 }
 
 .boardContainer {
-<<<<<<< HEAD
 	border: 1px solid black;
 	width: 562px;
 	height: 482px;
@@ -32,19 +31,5 @@
 	left: 50%;
 	margin-right: -50%;
 	transform: translate(-50%, -50%); */
-=======
 
-	border: 1px solid black;
-	width: 562px;
-	height: 480px;
-}
-.boardSquare {
-	border: 1px solid black;
-	width: 80px;
-	height: 80px;
-	display: inline-block;
-}
-#red {
-	background-color: red;
->>>>>>> 0f4fe051cb5dd88b0995c0b598f9a1ffe7bee235
 }
