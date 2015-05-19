@@ -8,15 +8,14 @@ var boardArray = new Array(42);
 function createBoard() {
 	var boardContainer = document.createElement('div');
 	boardContainer.className = 'boardContainer';
-	document.getElementsByClassName('mainContainer')[0].appendChild(boardContainer);
+	document.getElementsByTagName('body')[0].appendChild(boardContainer);
 
 	function square() {
 		var boardSquare = document.createElement('div');
-		boardSquare.className = 'boardSquare';
+		boardSquare.className = 'boardSquare vacant';
 		boardSquare.setAttribute('id', counter)
 		// boardSquare.innerHTML = counter;
 		boardSquare.appendChild(circle());
-
 		return boardSquare;
 	}
 
@@ -27,20 +26,18 @@ function createBoard() {
 		return innerCircle;
 	}
 
-	for (var counter = 0; counter < boardArray.length; counter++)
-		
+	for (var counter = 0; counter < boardArray.length; counter++) {
 		boardContainer.appendChild(square());
-		//square().appendChild(circle());
-
 	};
+}
 
-	createBoard();
+createBoard();
 
 // 2 set 2 players
 
-
 var player1 = {name: 'Player 1', turn: false, color: 'red'};
 var player2 = {name: 'Player 2', turn: false, color: 'black'};
+
 
 // 3 alternate turns
 // turn function assigns a player and after action assigns new player
@@ -48,9 +45,36 @@ var player2 = {name: 'Player 2', turn: false, color: 'black'};
 
 // function turn() {	
 
+	var makeAChecker = function(color, column) {
+		var checker = document.createElement('div');
+		checker.className = color;
+		checker.style.backgroundColor = color;
+		//console.log(color);
+
+		// checker starts in outer space
+		// by column, look at last cell and choose the one that is not empty
+
+		// col number + (7*5), loop through 4..1
+		for (var checkerCounter = 5; checkerCounter > -1; checkerCounter--) {
+			var squareId = column + (7 * checkerCounter)
+			var squareIdString = squareId.toString();
+			console.log(squareIdString)
+			   if (document.getElementById(squareId) === 'vacant') {
+			   		console.log('w');
+			}
+		}
+
+
+		// assign id to announce that slot is occupied
+
+
+		//return checker;
+	}
+
 	var animateChecker = function() {
 		var column = this.id % 7;
 		console.log(column); 
+		var newChecker = makeAChecker(player1.color, column);
 	}
 
 	for (var sqCount = 0; sqCount < 42; sqCount++) {	
