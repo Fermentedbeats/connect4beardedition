@@ -57,10 +57,11 @@ var player2 = {name: 'Player 2', turn: false, color: 'black'};
 		// col number + (7*5), loop through 4..1
 		for (var checkerCounter = 5; checkerCounter > -1; checkerCounter--) {
 			var squareId = column + (7 * checkerCounter)
-			var squareIdString = squareId.toString();
-			console.log(squareIdString)
-			   if (document.getElementById(squareId) === 'vacant') {
-			   		console.log('w');
+			squareId.toString();
+			var vacantCheck = document.getElementById(squareId); 	
+			console.log(vacantCheck)		
+			   if (vacantCheck.className == 'boardSquare vacant') {
+			   		console.log('YO');
 			}
 		}
 
