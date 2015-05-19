@@ -45,37 +45,37 @@ var player2 = {name: 'Player 2', turn: false, color: 'black'};
 
 // function turn() {	
 
-	var makeAChecker = function(color, column) {
+	var makeAChecker = function(color) {
 		var checker = document.createElement('div');
 		checker.className = color;
+		checker.className += " checker";
 		checker.style.backgroundColor = color;
-		//console.log(color);
+
+		//checker.style.zIndex="-1"
+		return checker;
+	}
+
+
+	var animateChecker = function() {
+		var column = this.id % 7;
+		console.log(column); 
+		var newChecker = makeAChecker(player1.color);
 
 		// checker starts in outer space
 		// by column, look at last cell and choose the one that is not empty
-
 		// col number + (7*5), loop through 4..1
+		// assign tag to announce that slot is occupied
 		for (var checkerCounter = 5; checkerCounter > -1; checkerCounter--) {
 			var squareId = column + (7 * checkerCounter)
 			squareId.toString();
 			var vacantCheck = document.getElementById(squareId); 	
 			console.log(vacantCheck)		
-			   if (vacantCheck.className == 'boardSquare vacant') {
-			   		console.log('YO');
+			if (vacantCheck.className == 'boardSquare vacant') {
+				vacantCheck.appendChild(newChecker);
+				vacantCheck.className = 'boardSquare occupied';
+				break;
 			}
 		}
-
-
-		// assign id to announce that slot is occupied
-
-
-		//return checker;
-	}
-
-	var animateChecker = function() {
-		var column = this.id % 7;
-		console.log(column); 
-		var newChecker = makeAChecker(player1.color, column);
 	}
 
 	for (var sqCount = 0; sqCount < 42; sqCount++) {	
