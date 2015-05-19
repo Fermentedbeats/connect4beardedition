@@ -1,4 +1,4 @@
-// 1 create board (6 x 7 square)
+// 1. create board (6 x 7 square)
 
 // array 0..41
 // for loop drops in pre-set sized pieces within container div (inline block)
@@ -33,33 +33,49 @@ function createBoard() {
 
 createBoard();
 
-// 2 set 2 players
+// 2. set 2 players
 
-var player1 = {name: 'Player 1', turn: false, color: 'red'};
+var player1 = {name: 'Player 1', turn: true, color: 'red'};
 var player2 = {name: 'Player 2', turn: false, color: 'black'};
 
 
-// 3 alternate turns
+// 3. alternate turns
 // turn function assigns a player and after action assigns new player
 // action lands piece in specified column (modulus of 7) in last open cell
 
-// function turn() {	
+	var whosTurnIsIt = function() {
+		if (player1.turn == true) {
+			return player1;
+		}
+		else {
+			return player2;
+		}
+	}	
+
+	var switchPlayer = function() {
+		if (player1.turn == true) {
+			player1.turn = false;
+			player2.turn = true;
+		}
+		else {
+			player1.turn = true;
+			player2.turn = false;
+		}
+	}
 
 	var makeAChecker = function(color) {
 		var checker = document.createElement('div');
 		checker.className = color;
 		checker.className += " checker";
 		checker.style.backgroundColor = color;
-
-		//checker.style.zIndex="-1"
 		return checker;
 	}
 
-
 	var animateChecker = function() {
+		var currentPlayer = whosTurnIsIt();
 		var column = this.id % 7;
 		console.log(column); 
-		var newChecker = makeAChecker(player1.color);
+		var newChecker = makeAChecker(currentPlayer.color);
 
 		// checker starts in outer space
 		// by column, look at last cell and choose the one that is not empty
@@ -73,6 +89,7 @@ var player2 = {name: 'Player 2', turn: false, color: 'black'};
 			if (vacantCheck.className == 'boardSquare vacant') {
 				vacantCheck.appendChild(newChecker);
 				vacantCheck.className = 'boardSquare occupied';
+				switchPlayer();
 				break;
 			}
 		}
