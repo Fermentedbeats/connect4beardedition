@@ -8,7 +8,7 @@ var boardArray = new Array(42);
 function createBoard() {
 	var boardContainer = document.createElement('div');
 	boardContainer.className = 'boardContainer';
-	document.getElementsByTagName('body')[0].appendChild(boardContainer);
+	document.getElementsByClassName('mainContainer')[0].appendChild(boardContainer);
 
 	function square() {
 		var boardSquare = document.createElement('div');
@@ -63,6 +63,9 @@ var player2 = {name: 'Player 2', turn: false, color: 'black'};
 		}
 	}
 
+// 4. click on col & piece appears
+// 0..6 have event listeners: 7 diff click-here areas
+
 	var makeAChecker = function(color) {
 		var checker = document.createElement('div');
 		checker.className = color;
@@ -99,18 +102,6 @@ var player2 = {name: 'Player 2', turn: false, color: 'black'};
 		document.getElementById(sqCount).addEventListener("click", animateChecker, true);
 	}
 
-	// if (player1.turn === false) {
-
-	// }
-
-	// else
-	// 	;
-// }
-
-
-
-// 4 click on col & piece appears
-// 0..6 have event listeners or 7 diff click-here areas
 
 // 5 after each turns
 
