@@ -133,49 +133,53 @@ function checkForWinner(index) {
 	 // D. +8 & -8
      // 	while x != edge cases
  
- 	var countingToFour = 1
+ 	var countingToFour = 1;
     var testCases = [1, 6, 7, 8];
+    var edges = [0, 1, 2, 3, 4, 5, 6, 7, 14, 21, 28, 35, 13, 20, 27, 34, 41, 36, 37, 38, 39];
 
     // loop to check all 8 surrounding cell squares for a matching value (-/+ 1, 6, 7 or 8 indices away)
 	for (var counter0 = 0; counter0 < testCases.length; counter0++) {
 
-		    console.log("num in cell: ");
-     		console.log(boardArray[index]);
+		    console.log("num in cell: " + boardArray[index]);
 
+		// check edge cases
+		for (var count = 0; count < edges.length; count++) {
+			
 		// if the player # (just-placed checker) in the array matches the value in the contiguous cell 
+		// and the contiguous cell is not an edge number
 		// run the next loop
-     	if (boardArray[index] === boardArray[index - testCases[counter0]] || boardArray[index] === boardArray[index+testCases[counter0]]) {
-
-    		
-     		// when a match is found, check the next cell in that direction (-/+)
-     		for(var i = index; boardArray[i] === boardArray[i-testCases[counter0]]; i-=testCases[counter0]) {
-     			countingToFour++;
-     			//console.log("loop2");
-     			if (countingToFour === 4) {
-     				console.log("winner1")
-     				return "Winner"; 			
+     		if ((boardArray[index] === boardArray[index - testCases[counter0]]
+     		&& boardArray[index - testCases[counter0]] !== edges[count] )
+     		|| (boardArray[index] === boardArray[index +	testCases[counter0]]
+     		&& boardArray[index + testCases[counter0]] !== edges[count])) {
+		
+     			// when a match is found, check the next cell in that direction (-/+)
+     			for(var i = index; boardArray[i] === boardArray[i-testCases[counter0]]; i-=testCases[counter0]) {
+     				countingToFour++;
+     				//console.log("loop2");
+     				if (countingToFour === 4) {
+     					alert("Player " + boardArray[index] + " wins!");
+     					return "Winner"; 			
+     				}
+	
      			}
-
-     		}
-     		// when a match is found, check the next cell in the other direction (-/+)
-     		for (var j = index; boardArray[j] === boardArray[j+testCases[counter0]]; i+=testCases[counter0]) {
-     			//console.log("loop3");
-     			console.log(countingToFour)
-     			countingToFour++;
-     			if (countingToFour === 4) {
-     				console.log("winner2")
-     				return "Winner"; 	
+     			// when a match is found, check the next cell in the other direction (-/+)
+     			for (var j = index; boardArray[j] === boardArray[j+testCases[counter0]]; j+=testCases[counter0]) {
+     				//console.log("loop3");
+     				console.log(countingToFour)
+     				countingToFour++;
+     				if (countingToFour === 4) {
+     					alert("Player " + boardArray[index] + " wins!");
+     					return "Winner"; 	
+     				}
+	
      			}
-
      		}
 		//console.log(countingToFour);
 		countingToFour = 1;
 		}
 	}
 }
-
-
-
 
 // 6 stop game when there's a winner
 
